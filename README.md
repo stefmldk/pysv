@@ -1,8 +1,8 @@
-# PYSV
+# PySV
 A fast Python-based, long-read structural variant caller for Linux
 
 ## Installation
-Simply download pysv.py and pysv_env.yml. Use pysv_env.yml to create a Conda environment with the required dependencies: Assuming mamba is installed run the command
+Simply download pysv.py and pysv_env.yml. Use pysv_env.yml to create a Conda environment with the required dependencies: Assuming mamba is installed, run the command
 ```
 mamba env create -f pysv_env.yml
 ```
@@ -12,8 +12,16 @@ To get a quick overview of command parameters run
 ```
 python pysv.py -h
 ```
+To run PySV using four cores for BAM file searching, use the command:
+```
+python pysv.py -b <bam_file> -c4
+```
+To run PySV recursively on all bam files in a folder, use the command:
+```
+python pysv.py -d <folder> -c4
+```
 
-Pysv is designed to call relatively large structural variants (SVs), like large del/dups, inversions or translocations. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
+Pysv is designed to call large structural variants (SVs) by analyzing chimeric reads. Chimeric reads are reads that contain multiple suplementary alignments within the same genome. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
 
 In the first part of a run, the given BAM file is searched for reads containing supplementary alignments. This part can be accelerated via multiprocessing.
 
