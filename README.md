@@ -3,13 +3,16 @@ A fast Python-based, long-read structural variant caller for Linux
 
 ## Installation
 Simply download pysv.py and pysv_env.yml. Use pysv_env.yml to create a Conda environment with the required dependencies: Assuming mamba is installed run the command
-```mamba env create -f pysv_env.yml```
+```
+mamba env create -f pysv_env.yml
+```
 
 ## Quick start
 To get a quick overview of command parameters run
 ```
-python pysv.py -h  # 
+python pysv.py -h
 ```
+
 Pysv is designed to call relatively large structural variants (SVs), like large del/dups, inversions or translocations. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
 
 In the first part of a run, the given BAM file is searched for reads containing supplementary alignments. This part can be accelerated via multiprocessing.
