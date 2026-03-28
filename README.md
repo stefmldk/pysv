@@ -2,7 +2,9 @@
 A fast Python-based, long-read structural variant caller for Linux
 
 ## Installation
-Simply download pysv.py and
+Simply download pysv.py and pysv_env.yml. Use pysv_env.yml to create a Conda environment with the required dependencies. Assuming mamba is installed run the command
+´mamba env create -f pysv_env.yml´
+
 
 Pysv is designed to call relatively large structural variants (SVs), like large del/dups, inversions or translocations. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
 
