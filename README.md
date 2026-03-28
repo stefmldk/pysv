@@ -1,5 +1,8 @@
 # PYSV
-Fast Python-based, long-read structural variant caller
+A fast Python-based, long-read structural variant caller for Linux
+
+## Installation
+Simply download pysv.py and
 
 Pysv is designed to call relatively large structural variants (SVs), like large del/dups, inversions or translocations. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
 
