@@ -20,13 +20,5 @@ To run PySV recursively on all bam files in a folder, use the command:
 ```
 python pysv.py -d <folder> -c4
 ```
-
-Pysv is designed to call large structural variants (SVs) by analyzing chimeric reads. Chimeric reads are reads that contain multiple suplementary alignments within the same genome. It does not analyse CIGAR sequences and therefore will not call SVs small enough to be contained in these. Other tools exist that can call SVs contained in CIGAR sequences.
-
-In the first part of a run, the given BAM file is searched for reads containing supplementary alignments. This part can be accelerated via multiprocessing.
-
-Next, pairs of consecutive alignments (consecutive on the reads, not on the reference) are created and clusters of pairs that share breakpoints are created. A maximum breakpoint wobble may be defined for this process. Default is +/- 20 bases.
-
-The resulting clusters and their associated brekpoints may at this point be used for manual examination in a suitable genome browser like IGV. However, PYSV 
-
-bases its algorithm on reads containing supplementary alignments. It does not in this version examine the CIGAR sequences and therefore it is primarily relatively large structural variants (SVs) that pysv detects
+## Overview
+Pysv is designed to call large structural variants (SVs) by analyzing chimeric reads. Chimeric reads are reads that contain multiple supplementary alignments that map to different places in the reference genome. It does not in the current version analyse CIGAR sequences in order to call SVs that are small enough to be contained within individual alignments. Other tools may be used for that purpose.
